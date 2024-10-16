@@ -46,7 +46,7 @@ pip install numpy matplotlib seaborn scikit-learn
 3. Run the Python script:
 
 ```bash
-python random_forest_classifier.py
+python Question{#number}.py
 ```
 
 ---
