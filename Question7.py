@@ -18,7 +18,7 @@ y_pred = svc.predict(X_test)
 conf_matrix = confusion_matrix(y_test, y_pred)
 # draw the confusion matrix
 plt.figure(figsize=(10, 7))
-sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
+sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='viridis')
 plt.title('Confusion Matrix')
 plt.ylabel('True Label')
 plt.xlabel('Predicted Label')

@@ -14,10 +14,10 @@ X = mnist.data.to_numpy()
 y = mnist.target.to_numpy().astype(int)
 
 # 第一步：拆分出训练集和临时集（70% 训练集，30% 临时集）
-X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=520)
 
 # 第二步：将临时集拆分为验证集和测试集（20% 验证集，10% 测试集）
-X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=1/3, random_state=42)
+X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=1/3, random_state=520)
 
 # --------- SVM 训练和评估 ---------
 # 初始化并训练 SVM 模型
@@ -32,7 +32,7 @@ conf_matrix_svm = confusion_matrix(y_test, y_pred_svm)
 
 # 绘制 SVM 混淆矩阵
 plt.figure(figsize=(10, 7))
-sns.heatmap(conf_matrix_svm, annot=True, fmt='d', cmap='Blues')
+sns.heatmap(conf_matrix_svm, annot=True, fmt='d', cmap='viridis')
 plt.title('SVM Confusion Matrix')
 plt.ylabel('True Label')
 plt.xlabel('Predicted Label')
@@ -52,7 +52,7 @@ print(f'SVM F1-Score: {f1_svm:.2f}')
 
 # --------- 随机森林 训练和评估 ---------
 # 初始化随机森林分类器
-rf_clf = RandomForestClassifier(n_estimators=100, random_state=42)
+rf_clf = RandomForestClassifier(n_estimators=100, random_state=520)
 
 # 在训练集上训练随机森林模型
 rf_clf.fit(X_train, y_train)
@@ -65,7 +65,7 @@ conf_matrix_rf = confusion_matrix(y_test, y_pred_rf)
 
 # 绘制随机森林混淆矩阵
 plt.figure(figsize=(10, 7))
-sns.heatmap(conf_matrix_rf, annot=True, fmt='d', cmap='Blues')
+sns.heatmap(conf_matrix_rf, annot=True, fmt='d', cmap='viridis')
 plt.title('Random Forest Confusion Matrix')
 plt.ylabel('True Label')
 plt.xlabel('Predicted Label')

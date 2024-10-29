@@ -7,9 +7,9 @@ mnist = fetch_openml('mnist_784', version=1, data_home='./Data')
 X = mnist.data.to_numpy()
 y = mnist.target.to_numpy().astype(int)
 # First Step: Split the dataset into training set and temporary set (70% training set, 30% temporary set)
-X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=42)
+X_train, X_temp, y_train, y_temp = train_test_split(X, y, test_size=0.3, random_state=520)
 # Second Step: Split the temporary set into validation set and test set (20% validation set, 10% test set)
-X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=1/3, random_state=42)
+X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=1/3, random_state=520)
 # initialize the model
 svc = SVC(kernel='rbf', C=1.0, gamma='scale')
 # train the model
